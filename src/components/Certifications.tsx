@@ -6,49 +6,45 @@ import { fadeInUp, staggerContainer, scaleOnHover } from '../utils/animations';
 const Certifications: React.FC = () => {
   const certifications = [
     {
-      title: 'AWS Academy Graduate – Cloud Architecting',
-      issuer: 'Amazon Web Services',
-      year: '2024',
-      description: 'Comprehensive training in cloud architecture, design patterns, and AWS services implementation',
+      title: 'Cloud Virtual Internship by AWS Academy',
+      issuer: 'Amazon Web Services (AWS Academy)',
+      year: 'March 2024',
+      description: 'Hands-on cloud computing experience with AWS services including EC2, S3, Lambda, and cloud architecture fundamentals.',
       color: 'from-orange-400 to-orange-600',
-      badge: '☁️'
+      badge: '☁️',
+      certificateUrl: 'https://drive.google.com/file/d/19oxwfm-QyVBFG6rBt4b-gPHltgY2YX3f/view?usp=drive_link' // Replace with actual link
     },
     {
-      title: 'Python for Data Science Certification',
-      issuer: 'Professional Training Institute',
-      year: '2023',
-      description: 'Advanced Python programming for data analysis, machine learning, and scientific computing',
+      title: 'Designing an Intuitive and User-Friendly Interface',
+      issuer: 'IQMath ',
+      year: 'October 2024',
+      description: 'UI/UX principles, wireframing, prototyping, and user-centered design practices for digital products.',
       color: 'from-green-400 to-green-600',
-      badge: '🐍'
+      badge: '🎨',
+      certificateUrl: 'https://drive.google.com/file/d/19pyCJZl1Aj5V2aVLuPSRmSv63-10VnuP/view?usp=drive_link' // Replace with actual link
     },
     {
-      title: 'Cloud Deployment Specialist',
-      issuer: 'Multiple Platforms',
-      year: '2024',
-      description: 'Hands-on experience with multiple cloud deployments and infrastructure management',
+      title: 'Online Portfolio Development using GitHub',
+      issuer: 'GUVI via NaanMudhalvan',
+      year: 'July 2024 – January 2025',
+      description: 'Full-stack portfolio development using React, GitHub Pages, and modern web technologies with version control and deployment.',
       color: 'from-blue-400 to-blue-600',
-      badge: '🚀'
-    },
-    {
-      title: 'Open Source Contributor',
-      issuer: 'GitHub Community',
-      year: '2023-2024',
-      description: 'Active contributions to open-source projects and community development initiatives',
-      color: 'from-purple-400 to-purple-600',
-      badge: '⭐'
+      badge: '💻',
+      certificateUrl: 'https://drive.google.com/file/d/19vHjXxbWEGWElFcD1VXjBZWxUk_V43Mf/view?usp=drive_link' // Replace with actual link
     }
   ];
 
   const achievements = [
-    'AWS Cloud Architecture Expertise',
-    'Python Data Science Proficiency',
-    'Multiple Successful Deployments',
-    'Open Source Community Recognition'
+    'AWS Cloud Practitioner Skills',
+    'UI/UX Design Proficiency',
+    'GitHub Portfolio Deployment',
+    'Full-Stack Web Development'
   ];
 
   return (
     <section id="certifications" className="py-20 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial="initial"
           whileInView="animate"
@@ -74,7 +70,8 @@ const Certifications: React.FC = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
+        {/* Certification Cards */}
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
@@ -91,7 +88,9 @@ const Certifications: React.FC = () => {
                 className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-slate-200 dark:border-slate-700 h-full"
               >
                 {/* Badge */}
-                <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${cert.color} p-4 mb-6 mx-auto flex items-center justify-center text-3xl`}>
+                <div
+                  className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${cert.color} p-4 mb-6 mx-auto flex items-center justify-center text-3xl`}
+                >
                   {cert.badge}
                 </div>
 
@@ -113,15 +112,19 @@ const Certifications: React.FC = () => {
                   {cert.description}
                 </p>
 
+                {/* View Certificate Button (Links to Google Drive Image Preview) */}
                 <div className="text-center">
-                  <motion.button
+                  <motion.a
+                    href={cert.certificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
                   >
                     <FiAward size={16} />
                     View Certificate
-                  </motion.button>
+                  </motion.a>
                 </div>
               </motion.div>
             </motion.div>

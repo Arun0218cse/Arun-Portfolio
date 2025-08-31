@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
     {
       icon: <FiGlobe size={20} />,
       label: 'Languages',
-      value: 'Tamil (Native), English (Fluent)'
+      value: 'Tamil (Native), English '
     },
     {
       icon: <FiHeart size={20} />,

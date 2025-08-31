@@ -19,23 +19,28 @@ const Projects: React.FC = () => {
         'Automated file rollback system',
         'User-friendly dashboard interface',
         'Mobile app for remote monitoring'
-      ]
+      ],
+      liveUrl: null, // No live demo yet
+      githubUrl: 'https://github.com/Arun0218cse/ransomware.git' // Example link
     },
-    {
-      title: 'Smart Parking System',
-      description: 'IoT-enabled parking optimization system with real-time sensor monitoring and mobile application for seamless parking management.',
-      period: 'Jul 2024 – Jan 2025',
-      technologies: ['IoT Sensors', 'Flutter', 'Firebase', 'Cloud Functions', 'Real-time Database'],
-      icon: <FiSmartphone size={32} />,
-      color: 'from-green-400 to-green-600',
-      status: 'Completed',
-      features: [
-        'Real-time parking space detection',
-        'Mobile app for parking reservations',
-        'IoT sensor integration',
-        'Cloud-based data processing'
-      ]
-    },
+{
+  title: 'Bus Reservation System',
+  description: 'A full-stack web application built with Python and Django for managing bus reservations, seat booking, and user authentication with a clean admin interface and real-time availability tracking.',
+  period: 'Jul 2024 – Jan 2025',
+  technologies: ['Python', 'Django', 'HTML/CSS', 'JavaScript', 'SQLite', 'Bootstrap'],
+  icon: <FiGlobe size={32} />, // Changed to globe for web app
+  color: 'from-blue-400 to-blue-600', // Updated to blue for tech/web theme
+  status: 'Completed',
+  features: [
+    'User registration and login system',
+    'Real-time seat availability and booking',
+    'Admin dashboard for managing buses and routes',
+    'Booking history and ticket generation',
+    'Responsive design for desktop and mobile'
+  ],
+  liveUrl: null, // No live demo (or add Netlify/Heroku link if available)
+  githubUrl: 'https://github.com/Arun0218cse/NANMUDHALVAN_TUESDAYBATCH_PROJECT_FILES-main.git'
+},
     {
       title: 'Edizo.in Website Development',
       description: 'Fullstack company website development featuring modern design, responsive layout, and robust backend infrastructure.',
@@ -49,7 +54,9 @@ const Projects: React.FC = () => {
         'Content management system',
         'SEO optimization',
         'Performance optimization'
-      ]
+      ],
+      liveUrl: 'https://edizo.in', // ✅ Real website
+      githubUrl: null // Private repo – hide source
     }
   ];
 
@@ -116,7 +123,7 @@ const Projects: React.FC = () => {
                   <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-3">
                     {project.title}
                   </h3>
-                  
+
                   <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm mb-4">
                     <FiCalendar size={16} />
                     {project.period}
@@ -152,22 +159,35 @@ const Projects: React.FC = () => {
                   </div>
 
                   <div className="flex gap-4">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
-                    >
-                      <FiExternalLink size={16} />
-                      Live Demo
-                    </motion.button>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white rounded-lg font-medium transition-colors duration-200"
-                    >
-                      <FiGithub size={16} />
-                      Source Code
-                    </motion.button>
+                    {/* Live Demo Button */}
+                    {project.liveUrl && (
+                      <motion.a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
+                      >
+                        <FiExternalLink size={16} />
+                        Live Demo
+                      </motion.a>
+                    )}
+
+                    {/* Source Code Button */}
+                    {project.githubUrl && (
+                      <motion.a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white rounded-lg font-medium transition-colors duration-200"
+                      >
+                        <FiGithub size={16} />
+                        Source Code
+                      </motion.a>
+                    )}
                   </div>
                 </div>
               </motion.div>

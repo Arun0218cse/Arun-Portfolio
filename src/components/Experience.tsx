@@ -8,7 +8,7 @@ const Experience: React.FC = () => {
     {
       title: 'Fullstack Developer',
       company: 'Edizo Pvt Ltd',
-      location: 'Chennai, Tamil Nadu',
+      location: 'now run virtually',
       period: 'January 2025 – Present',
       type: 'Full-time',
       description: [
