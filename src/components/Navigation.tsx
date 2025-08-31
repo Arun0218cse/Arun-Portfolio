@@ -34,7 +34,7 @@ const Navigation: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
-  // Smooth height animation workaround for mobile menu
+  // Smooth height animation for mobile menu
   const mobileMenuVariants = {
     closed: { height: 0, opacity: 0 },
     open: { height: 'auto', opacity: 1 }
@@ -45,9 +45,9 @@ const Navigation: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
+        isScrolled
           ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-lg'
-          : 'bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,7 +60,7 @@ const Navigation: React.FC = () => {
             Arun C
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <motion.a
@@ -78,25 +78,25 @@ const Navigation: React.FC = () => {
             ))}
           </div>
 
-          {/* Right side controls */}
+          {/* Right Side Controls */}
           <div className="flex items-center space-x-4">
             {/* Social Links (Desktop) */}
             <div className="hidden md:flex items-center space-x-3">
               <motion.a
-                href="https://github.com/Arun0218cse" // 🔴 Fixed: Removed trailing spaces
+                href="https://github.com/Arun0218cse"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GitHub Profile"
+                aria-label="GitHub"
                 whileHover={{ scale: 1.1, y: -2 }}
                 className="text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
               >
                 <FiGithub size={20} />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/arun-c-209547343" // 🔴 Fixed: Removed trailing spaces
+                href="https://linkedin.com/in/arun-c-209547343"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn Profile"
+                aria-label="LinkedIn"
                 whileHover={{ scale: 1.1, y: -2 }}
                 className="text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
               >
@@ -110,21 +110,17 @@ const Navigation: React.FC = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-              className="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors duration-200"
+              className="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700"
             >
-              {isDark ? (
-                <FiSun size={20} className="text-yellow-500" />
-              ) : (
-                <FiMoon size={20} className="text-slate-600" />
-              )}
+              {isDark ? <FiSun size={20} className="text-yellow-500" /> : <FiMoon size={20} className="text-slate-600" />}
             </motion.button>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Button */}
             <motion.button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap={{ scale: 0.95 }}
               aria-expanded={isMobileMenuOpen}
-              aria-label="Toggle mobile menu"
+              aria-label="Toggle menu"
               className="md:hidden p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700"
             >
               {isMobileMenuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
@@ -150,17 +146,17 @@ const Navigation: React.FC = () => {
                   scrollToSection(item.href);
                 }}
                 whileHover={{ x: 10 }}
-                className="block py-2 text-lg text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 transition-colors duration-200"
+                className="block py-2 text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 transition-colors duration-200"
               >
                 {item.name}
               </motion.a>
             ))}
-            <div className="flex items-center space-x-6 pt-2">
+            <div className="flex items-center justify-center space-x-6 pt-4">
               <motion.a
                 href="https://github.com/Arun0218cse"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GitHub Profile"
+                aria-label="GitHub"
                 whileHover={{ scale: 1.1 }}
                 className="text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
               >
@@ -170,7 +166,7 @@ const Navigation: React.FC = () => {
                 href="https://linkedin.com/in/arun-c-209547343"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn Profile"
+                aria-label="LinkedIn"
                 whileHover={{ scale: 1.1 }}
                 className="text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
               >
