@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowDown, FiMail, FiEye } from 'react-icons/fi';
 import { fadeInUp, buttonHover } from '../utils/animations';
 
 const Hero: React.FC = () => {
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
+const roles = [
+  'Full Stack Developer',
+  'Mobile & Web Application Developer',
+  'Frontend & Backend Engineer',
+  'Database Architect (MySQL)',
+  'AI & Prompt Engineer',
+];
+
+  // Cycle through roles every 2.5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -12,7 +30,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -35,13 +53,28 @@ const Hero: React.FC = () => {
           Arun C
         </motion.h1>
 
-        <motion.h2
-          {...fadeInUp}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-2xl md:text-3xl text-blue-600 dark:text-blue-400 font-semibold mb-6"
-        >
-          Software Developer
-        </motion.h2>
+      {/* Animated Role Text - Typing Effect */}
+<motion.h2
+  key={currentRoleIndex}
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.5 }}
+  className="text-2xl md:text-3xl font-semibold mb-6 bg-gradient-to-r from-blue-500 to-indigo-600 inline-block text-transparent bg-clip-text dark:from-blue-400 dark:to-indigo-500"
+>
+  {roles[currentRoleIndex].split('').map((char, index) => (
+    <motion.span
+      key={index}
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{
+        delay: index * 0.05, // Stagger each character
+        duration: 0.25,
+      }}
+    >
+      {char}
+    </motion.span>
+  ))}
+</motion.h2>
 
         <motion.p
           {...fadeInUp}
@@ -74,6 +107,7 @@ const Hero: React.FC = () => {
           </motion.button>
         </motion.div>
 
+        {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
