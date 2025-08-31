@@ -6,7 +6,7 @@ import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from '../utils/an
 const About: React.FC = () => {
   const education = [
     {
-      degree: 'BE Computer Science Engineering',
+      degree: 'BE Computer Science And Engineering',
       institution: 'Paavai College of Engineering',
       location: 'Namakkal, Tamil Nadu',
       grade: 'CGPA: 7.2',
@@ -63,7 +63,7 @@ const About: React.FC = () => {
             <div className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-800 dark:to-slate-700 p-8 rounded-2xl">
               <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-6">Professional Summary</h3>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
-                Proactive and detail-oriented BE Computer Science Engineeing graduate with hands-on experience in 
+                Proactive and detail-oriented BE Computer Science And Engineeing graduate with hands-on experience in 
                 AI-driven cybersecurity, web development, and mobile applications. Skilled in React.js, Flutter, 
                 and cloud computing, with a strong foundation in software engineering and UI/UX design. 
                 Passionate about building innovative solutions and contributing to scalable IT projects.

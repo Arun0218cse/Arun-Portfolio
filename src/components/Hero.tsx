@@ -81,7 +81,7 @@ const roles = [
           transition={{ delay: 0.6, duration: 0.6 }}
           className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed"
         >
-          Proactive and detail-oriented B.Tech Computer Science graduate building innovative solutions
+          Proactive and detail-oriented BE Computer Science  And Engineering graduate building innovative solutions
         </motion.p>
 
         <motion.div
