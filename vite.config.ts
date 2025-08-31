@@ -1,10 +1,20 @@
-// vite.config.ts
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/vite-react-typescript-starter/', // ← Only if deploying to a subpath (like repo name)
-  // Remove this line if you don't need it:
-  // optimizeDeps: { exclude: ['lucide-react'] },
+  build: {
+    // Use default esbuild minification (fast and efficient)
+    // minify: 'esbuild' — this is default, so you can omit it
+    sourcemap: false, // Set to true if you need source maps in production
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          motion: ['framer-motion'],
+          icons: ['react-icons'],
+        },
+      },
+    },
+  },
 });
